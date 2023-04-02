@@ -5,22 +5,26 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'movies',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'movies',
-    loadChildren: () => import('./pages/movies/movies.module').then( m => m.MoviesPageModule)
+    loadChildren: () =>
+      import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
   },
   {
     path: 'movies/:id',
-    loadChildren: () => import('./pages/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+    loadChildren: () =>
+      import('./pages/movie-details/movie-details.module').then(
+        (m) => m.MovieDetailsPageModule
+      ),
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
